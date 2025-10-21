@@ -43,14 +43,9 @@ class ChillMCPServer:
             "take_a_break", "watch_netflix", "show_meme"
         }
         
-        # 근무 시간 설정 (9시~18시)
-        self.work_start_hour = 9
-        self.work_end_hour = 18
-        
         print(f"🚀 ChillMCP Server 초기화 완료!")
         print(f"   - Boss Alertness: {self.boss_alertness}%")
         print(f"   - Boss Alert Cooldown: {self.boss_alertness_cooldown}초")
-        print(f"   - 근무 시간: {self.work_start_hour}시 ~ {self.work_end_hour}시")
     
     def update_stress_level(self):
         """시간 경과에 따른 스트레스 레벨 자동 증가"""
@@ -72,16 +67,6 @@ class ChillMCPServer:
             cooldown_count = int(elapsed_seconds / self.boss_alertness_cooldown)
             self.boss_alert_level = max(0, self.boss_alert_level - cooldown_count)
             self.last_boss_cooldown_time = current_time
-    
-    def is_work_hours(self) -> bool:
-        """
-        현재 근무 시간인지 체크 (9시~18시)
-        
-        Returns:
-            근무 시간이면 True, 아니면 False
-        """
-        current_hour = datetime.now().hour
-        return self.work_start_hour <= current_hour < self.work_end_hour
     
     def take_break(self, tool_name: str, activity: str, stress_reduction: int) -> str:
         """
