@@ -86,8 +86,8 @@ class ChillMCPServer:
         # Boss Alert Level 체크 - Level 5일 때 20초 지연 + 폭발!)
         if self.boss_alert_level >= 5:
             print(f"⚠️  Boss가 주시하고 있습니다! 20초 대기...")
-            # ! await asyncio.sleep(20)
-            # ! time.sleep(20)
+            # await asyncio.sleep(20)
+            # time.sleep(20)
         
         # 스트레스 감소
         self.stress_level = max(0, self.stress_level - stress_reduction)
