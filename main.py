@@ -8,18 +8,8 @@ import argparse
 import asyncio
 import random
 import time
-import sys
-import logging
 # from fastmcp import FastMCP
 from mcp.server.fastmcp import FastMCP
-
-
-logging.basicConfig(
-    level=logging.WARNING,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[logging.FileHandler('./chillmcp_debug.log')]
-)
-logger = logging.getLogger(__name__)
 
 
 class ChillMCPServer:
